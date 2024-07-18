@@ -51,7 +51,9 @@ While ($True) {
     ###compare IP and add to FWrule
     if ($IP1 -eq $IP2){
         #Write-Host "IP is correct!" -ForegroundColor Yellow
-        $CurrentIPs = (Get-NetFirewallRule -DisplayName "!RDP-for-port-knocking" | Get-NetFirewallAddressFilter ).RemoteAddress
+        # $CurrentIPs = (Get-NetFirewallRule -DisplayName "!RDP-for-port-knocking" | Get-NetFirewallAddressFilter ).RemoteAddress
+        # For Windows Server 2016(100% worked) uncomment next line and comment previous one.
+        $CurrentIPs = @( (Get-NetFirewallRule -DisplayName "!RDP-for-port-knocking" | Get-NetFirewallAddressFilter).RemoteAddress )
         $CurrentIPs += $IP2
         Set-NetFirewallRule -DisplayName "!RDP-for-port-knocking" -RemoteAddress  $CurrentIPs 
 		#Write-Host $CurrentIPS
