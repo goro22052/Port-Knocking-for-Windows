@@ -5,7 +5,7 @@
 		<port1>zzzzz</port1>
         <port2>zzzzzz</port2>
         <RDPport>4389</RDPport>
-        <SafeIPs>1111111</SafeIPs>
+        <SafeIPs>192.168.0.8</SafeIPs>
 	</system>
 	<tasks>
 		<task name="Hiber" script="C:\....cmd"></task>
